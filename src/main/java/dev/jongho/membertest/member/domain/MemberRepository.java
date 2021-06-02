@@ -1,4 +1,4 @@
-package dev.jongho.membertest.member;
+package dev.jongho.membertest.member.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

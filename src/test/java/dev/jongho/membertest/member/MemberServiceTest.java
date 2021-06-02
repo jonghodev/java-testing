@@ -1,18 +1,12 @@
-package dev.jongho.membertest;
+package dev.jongho.membertest.member;
 
-import dev.jongho.membertest.member.Member;
-import dev.jongho.membertest.member.MemberRepository;
-import dev.jongho.membertest.member.MemberService;
-import org.junit.jupiter.api.DisplayNameGeneration;
-import org.junit.jupiter.api.DisplayNameGenerator;
+import dev.jongho.membertest.member.domain.Member;
+import dev.jongho.membertest.member.domain.MemberRepository;
+import dev.jongho.membertest.member.service.MemberService;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
 
@@ -21,7 +15,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-@ActiveProfiles("test")
 class MemberServiceTest {
 
     @Mock MemberRepository memberRepository;
@@ -30,6 +23,7 @@ class MemberServiceTest {
     void create_member() {
         // Given
         MemberService memberService = new MemberService(memberRepository);
+        System.out.println(memberRepository.getClass());
         Member member = new Member(1L, "jongho", 10);
 
         when(memberRepository.findById(any()))
@@ -53,12 +47,8 @@ class MemberServiceTest {
         when(memberRepository.findById(any()))
                 .thenReturn(Optional.of(member));
 
-        // When
-        Member findMember = memberService.getById(5L);
-
-        // Then
         assertThrows(IllegalAccessException.class, () ->
-            memberService.deleteAccount(findMember)
+            memberService.deleteAccount(1L)
         );
     }
 
@@ -72,10 +62,9 @@ class MemberServiceTest {
                 .thenReturn(Optional.of(member));
 
         // When
-        Member findMember = memberService.getById(5L);
+        boolean isSuccess = memberService.deleteAccount(1L);
 
         // Then
-        boolean isSuccess = memberService.deleteAccount(findMember);
         assertTrue(isSuccess);
     }
 }

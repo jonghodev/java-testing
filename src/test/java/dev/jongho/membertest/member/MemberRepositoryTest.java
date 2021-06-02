@@ -1,7 +1,7 @@
-package dev.jongho.membertest;
+package dev.jongho.membertest.member;
 
-import dev.jongho.membertest.member.Member;
-import dev.jongho.membertest.member.MemberRepository;
+import dev.jongho.membertest.member.domain.Member;
+import dev.jongho.membertest.member.domain.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -22,12 +22,18 @@ class MemberRepositoryTest {
 
     @Test
     void find_age_after() {
+        /**
+         * 12살부터 15살까지의 Member 4명을 생성한다.
+         */
         for (int age = 12; age <= 15; age++) {
             Member createMember = new Member("jongho", age);
             memberRepository.save(createMember);
         }
 
         List<Member> members = memberRepository.findByAgeAfter(14);
+        /**
+         * 14살보다 많은 Member는 한 명 밖에 없을 것이다.
+         */
         assertEquals(members.size(), 1);
     }
 }

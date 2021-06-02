@@ -1,4 +1,4 @@
-package dev.jongho.membertest;
+package dev.jongho.membertest.junit5;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;

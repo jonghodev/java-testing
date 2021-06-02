@@ -1,4 +1,4 @@
-package dev.jongho.membertest.member;
+package dev.jongho.membertest.member.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,8 +22,8 @@ public class Member {
     private int age;
 
     public Member(Long id, String name, int age) {
-        if (age < 0) {
-            throw new RuntimeException("0살 보다 어릴 수 없습니다.");
+        if (age < 1) {
+            throw new RuntimeException("1살 보다 어릴 수 없습니다.");
         }
 
         this.id = id;
@@ -33,7 +33,7 @@ public class Member {
 
     public Member(String name, int age) {
         if (age < 0) {
-            throw new RuntimeException("0살 보다 어릴 수 없습니다.");
+            throw new RuntimeException("1살 보다 어릴 수 없습니다.");
         }
 
         this.name = name;

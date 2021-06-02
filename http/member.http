@@ -1,0 +1,12 @@
+### get member
+GET http://localhost:8080/members/2
+Accept: application/json
+
+### create member
+POST http://localhost:8080/members
+Content-Type: application/json
+
+{
+  "name": "Mr.Jeon",
+  "age": 21
+}
