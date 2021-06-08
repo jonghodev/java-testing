@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:tc:postgresql:///studytest
+    url: jdbc:tc:mysql:///studytest
     username: study
     password: study
     driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver

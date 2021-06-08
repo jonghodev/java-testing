@@ -1,11 +1,12 @@
-version: "3"
+version: '3.3'
 
 services:
   study-db:
-    image: postgres
+    image: mysql
     ports:
-      - 5432:5432
+      - 5432:3306
     environment:
-      POSTGRES_PASSWORD: study
-      POSTGRES_USER: study
-      POSTGRES_DB: study
+      MYSQL_ROOT_PASSWORD: study
+      MYSQL_USER: study
+      MYSQL_PASSWORD: study
+      MYSQL_DATABASE: study
