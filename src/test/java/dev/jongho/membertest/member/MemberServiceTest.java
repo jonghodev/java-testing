@@ -39,6 +39,17 @@ class MemberServiceTest {
     }
 
     @Test
+    void delete_not_exists_member() {
+        // Given
+        MemberService memberService = new MemberService(memberRepository);
+
+        // Then
+        assertThrows(RuntimeException.class, () ->
+                memberService.deleteAccount(1L)
+        );
+    }
+
+    @Test
     void delete_member_under_14() {
         // Given
         MemberService memberService = new MemberService(memberRepository);

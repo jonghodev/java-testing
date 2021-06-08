@@ -6,18 +6,24 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/members")
 @RequiredArgsConstructor
 public class MemberApi {
 
     private final MemberService memberService;
 
-    @GetMapping("/members/{id}")
+    @GetMapping("/{id}")
     public Member getMember(@PathVariable Long id) {
         return memberService.getById(id);
     }
 
-    @PostMapping("/members")
+    @PostMapping("")
     public Member saveMember(@RequestBody Member member) {
-        return memberService.create(member);
+        return memberService.save(member);
+    }
+
+    @DeleteMapping("/{id}")
+    public boolean deleteMember(@PathVariable Long id) throws Exception {
+        return memberService.deleteAccount(id);
     }
 }

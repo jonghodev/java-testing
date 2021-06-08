@@ -31,9 +31,10 @@ class MemberRepositoryTest {
         }
 
         List<Member> members = memberRepository.findByAgeAfter(14);
+
         /**
          * 14살보다 많은 Member는 한 명 밖에 없을 것이다.
          */
-        assertEquals(members.size(), 1);
+        assertEquals(1, members.size());
     }
 }
