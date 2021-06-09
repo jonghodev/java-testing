@@ -9,3 +9,18 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL5Dialect
     generate-ddl: true
+
+management:
+  endpoint:
+    chaosmonkey:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info,chaosmonkey
+
+chaos:
+  monkey:
+    enabled: true
+    watcher:
+      repository: true
