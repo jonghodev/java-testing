@@ -12,10 +12,16 @@ import static org.junit.jupiter.api.Assumptions.assumingThat;
 class ConditionalTest {
 
     @Test
-    @EnabledOnOs(OS.MAC)
-    void assuming_that() {
-        assumingThat(1 == 1, () ->
+    void assuming_that_1() {
+        assumingThat(1 + 1 == 2, () ->
             assertEquals(1, 1)
+        );
+    }
+
+    @Test
+    void assuming_that_2() {
+        assumingThat(1 + 1 == 3, () ->
+                assertEquals(1, 2)
         );
     }
 

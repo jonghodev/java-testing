@@ -18,13 +18,13 @@ class TagTest {
     }
 
     @Test
-    @Tag("fast")
+    @FastTest
     void test_fast1() {
 
     }
 
     @Test
-    @Tag("fast")
+    @FastTest
     void test_fast2() {
 
     }
