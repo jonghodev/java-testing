@@ -32,7 +32,7 @@ public class Member {
     }
 
     public Member(String name, int age) {
-        if (age < 0) {
+        if (age < 1) {
             throw new RuntimeException("1살 보다 어릴 수 없습니다.");
         }
 

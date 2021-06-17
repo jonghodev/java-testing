@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class MemberTest {
 
     @Test
-    void create_member() {
+    void Should_Member_Created() {
         Member member = new Member(1L, "jongho", 15);
         assertEquals(member.getId(), 1L);
         assertEquals(member.getName(), "jongho");
@@ -20,7 +20,7 @@ class MemberTest {
     }
 
     @Test
-    void member_below_1() {
+    void Should_ThrowException_When_Create_AgeLessThan0() {
         assertThrows(RuntimeException.class, () -> new Member(1L, "jongho", 0));
     }
 }

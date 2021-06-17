@@ -21,7 +21,7 @@ class MemberRepositoryTest {
     MemberRepository memberRepository;
 
     @Test
-    void find_age_after() {
+    void Should_Find_Age_After() {
         /**
          * 12살부터 15살까지의 Member 4명을 생성한다.
          */

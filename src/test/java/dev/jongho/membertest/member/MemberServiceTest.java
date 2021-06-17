@@ -20,7 +20,7 @@ class MemberServiceTest {
     @Mock MemberRepository memberRepository;
 
     @Test
-    void create_member() {
+    void Should_Member_Created() {
         // Given
         MemberService memberService = new MemberService(memberRepository);
         System.out.println(memberRepository.getClass());
@@ -39,7 +39,7 @@ class MemberServiceTest {
     }
 
     @Test
-    void delete_not_exists_member() {
+    void Should_ThrowException_When_DeleteAccount_NotExistsMember() {
         // Given
         MemberService memberService = new MemberService(memberRepository);
 
@@ -50,7 +50,7 @@ class MemberServiceTest {
     }
 
     @Test
-    void delete_member_under_14() {
+    void Should_ThrowException_When_DeleteAccount_AgeLessThan14() {
         // Given
         MemberService memberService = new MemberService(memberRepository);
         Member member = new Member(1L, "jongho", 10);
@@ -64,7 +64,7 @@ class MemberServiceTest {
     }
 
     @Test
-    void delete_member_below_14() throws IllegalAccessException {
+    void Should_Success_When_DeleteAccount_AgeMoreThan14() throws IllegalAccessException {
         // Given
         MemberService memberService = new MemberService(memberRepository);
         Member member = new Member(1L, "jongho", 15);

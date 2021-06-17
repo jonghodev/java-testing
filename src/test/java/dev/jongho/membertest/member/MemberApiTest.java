@@ -36,7 +36,7 @@ public class MemberApiTest {
     ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
-    void create_member() throws Exception {
+    void Should_Member_Created() throws Exception {
         // Given
         Member member = new Member(1L, "jongho", 15);
 
@@ -52,7 +52,7 @@ public class MemberApiTest {
     }
 
     @Test
-    void delete_member() throws Exception {
+    void Should_Delete_Member() throws Exception {
         // Given
         Member member = new Member(1L, "jongho", 15);
         memberService.save(member);
